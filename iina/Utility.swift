@@ -37,6 +37,8 @@ class Utility {
       alert.messageText = NSLocalizedString("alert.title_info", comment: "Information")
     case .warning:
       alert.messageText = NSLocalizedString("alert.title_warning", comment: "Warning")
+    @unknown default:
+      assertionFailure("Unknown \(type(of: alertStyle)) \(alertStyle)")
     }
     alert.informativeText = message
     alert.alertStyle = alertStyle
@@ -52,6 +54,8 @@ class Utility {
       alert.messageText = NSLocalizedString("alert.title_info", comment: "Information")
     case .warning:
       alert.messageText = NSLocalizedString("alert.title_warning", comment: "Warning")
+    @unknown default:
+      assertionFailure("Unknown \(type(of: style)) \(style)")
     }
 
     var format: String
